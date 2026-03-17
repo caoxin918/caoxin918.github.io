@@ -9,7 +9,7 @@ author_profile: true
 
 | |
 | :---- |
-|Bianbian Yang, Xin Zhou, Jiaxin Du, Yi Chen※, Huangjian Yi, Linzhi Su※, Chengyi Gao and **Xin Cao※**. “[Adaptive orthogonal matching pursuit and group K-SVD dictionary learning framework for bioluminescence tomography]( )”, **Optics Express**. (2026). |
+|Bianbian Yang, Xin Zhou, Jiaxin Du, Yi Chen※, Huangjian Yi, Linzhi Su※, Chengyi Gao and **Xin Cao※**. “[Adaptive orthogonal matching pursuit and group K-SVD dictionary learning framework for bioluminescence tomography]( https://caoxin918.github.io/files/yangbianbian-oe-2026.pdf)”, **Optics Express**. (2026). |
 |Bianbian Yang, Yiting He, Nanan Cai, Jun Zhang, Yi Chen※, Yangyang Liu※, Chengyi Gao, Huangjian Yi and **Xin Cao※**. “[Adaptive Bayesian augmented Lagrangian algorithm for Fluorescence Molecular Tomography]( https://caoxin918.github.io/files/yangbianbian-josa-2025.pdf)”, **Journal of the Optical Society of America A**. (2025). |
 |**Xin Cao**, Yiting He, Xin Zhou, Jiaxin Du, Yi Chen※, Yangyang Liu※, Chengyi Gao, Huangjian Yi. “[Adagrad-optimized variational Bayesian reconstruction with sparsity-adaptive normal-generalized inverse Gaussian prior for fluorescence molecular tomography]( https://caoxin918.github.io/files/heyiting-jap2025.pdf)”, **Journal of Applied Physics**. (2025). |
 |**Xin Cao**, Xinxin Han, Wenlong Tang, Yong Ren, Kang Li※, Ping Zhou and Linzhi Su※. “[PointMoment: A Mixed-Moment Self-Supervised Learning Approach for 3D Terracotta Warriors]( )”, **npj Heritage Science**. (2025). |
