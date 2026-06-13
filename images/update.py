@@ -6,12 +6,15 @@ update.py — 统一的页面更新脚本
 
 用法:  python3 update.py
 """
-import re, sys
+import re, sys, os
 
-BASE = '/Users/youyou/PycharmProjects/ScholarHome'
-pubs_md_path  = f'{BASE}/publications.md'
-stu_md_path   = f'{BASE}/students.md'
-html_path     = f'{BASE}/index.html'
+# 获取脚本所在目录 (images/) 和项目根目录 (ScholarHome/)
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+PROJECT_DIR = os.path.dirname(SCRIPT_DIR)
+
+pubs_md_path = os.path.join(PROJECT_DIR, 'files', 'publications.md')
+stu_md_path  = os.path.join(PROJECT_DIR, 'files', 'students.md')
+html_path    = os.path.join(PROJECT_DIR, 'index.html')
 
 # ====================================================================
 #  工具函数
