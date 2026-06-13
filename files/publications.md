@@ -10,7 +10,7 @@ author_profile: true
 | |
 | :---- |
 |Yinan Wang, Hao Zhang, Jiaxu Shi, Yangyang Liu, Fengjun Zhao, **Xin Cao※**. “[GS-CL: Generative Spectral-Contrastive Learning for Robust 3D point cloud representation](  )”, **Pattern Recognition**. (2026). |
-|Yanqiu Liu, Qinran Zhang, Sihao Ma, Qiong Xie*, **Xin Cao** and Huangjian Yi※. “[An automatic three-way clustering method based on shadowed sets and its application to FMT](  )”, **Journal of Applied Physics**. (2026). |
+|Yanqiu Liu, Qinran Zhang, Sihao Ma, Qiong Xie※, **Xin Cao** and Huangjian Yi※. “[An automatic three-way clustering method based on shadowed sets and its application to FMT](  )”, **Journal of Applied Physics**. (2026). |
 |**Xin Cao※**, Xinmeng Hu, Yinan Wang, Kang Li, Linzhi Su※, Yangyang Liu, Fengjun Zhao※. “[Point-DPA: Unifying contrastive and generative learning for 3D point cloud understanding via dynamic prototypes](https://caoxin918.github.io/files/2026-huxinmeng-ins.pdf)”, **Information Sciences**. (2026). |
 |Yi He+※, Rui Yan+, Yanhong Tang, Jinyu Zhang, Hui Qian, Dejing Chen, Lei Zhu and **Xin Cao※**. “[Enhancing runoff simulation in data-scarce mountainous regions: a coupled SWAT and transferable transformer approach]( https://caoxin918.github.io/files/2026-yanrui.pdf )”, **Journal of Hydrology**. (2026). |
 |Bianbian Yang, Xin Zhou, Jiaxin Du, Yi Chen※, Huangjian Yi, Linzhi Su※, Chengyi Gao and **Xin Cao※**. “[Adaptive orthogonal matching pursuit and group K-SVD dictionary learning framework for bioluminescence tomography]( https://caoxin918.github.io/files/yangbianbian-oe-2026.pdf)”, **Optics Express**. (2026). |
@@ -91,42 +91,42 @@ author_profile: true
 
 |  |
 | :---- |
-| Kang Li, Bianbian Yang, Yi Chen, Linzhi Su※, Chenyang Zhang, Fengjun Zhao, Yansong Wu, Yiting He and **Xin Cao※**. "[Sparse Reconstruction based on K-Sparse Dictionary Learning Method for Bioluminescence Tomography]()". **The 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2025. |
-| Yiting He, Xingxing Hao※, Yi Chen, Linzhi Su, Chenyang Zhang, Fengjun Zhao, Yansong Wu, **Xin Cao※**. "[Adaptive Online Variational Bayesian Method based on Normal-Generalized Inverse Gaussian Prior for Bioluminescence Tomography]()". **The 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2025. |
-| Kang Li, Gege Zhang, Yi Chen, Linshi Su※, Huangjian Yi, Fengjun Zhao, Yansong Wu, Yiting He and **Xin Cao※**. "[SABR-MIA: Support-driven Adaptive Bayesian Reweighting with Momentum Iterative Acceleration for Sparse Reconstruction in Bioluminescence Tomography]()". **The 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2025. |
-|Sumin Liu, Minghan Chen, **Xin Cao※** , Zhe Sheng, Junmei Sun, Ju Zhang, Shuai Wang, Guorong Wu, Defu Yang. “[A Novel Joint Multi-Graph Learning Framework for Dynamic Functional Connectivity Network Estimation Across Multiple Time Scale]( )”, **IEEE 22nd International Symposium on Biomedical Imaging (ISBI 2025)**, 2025. CODE click [HERE]( ) |
-|**Xin Cao**, Huan Xia, Haoyu Wang, Linzhi Su, Ping Zhou and Kang Li※. "[PointJEM: Self-supervised Point Cloud Understanding for Reducing Feature Redundancy via Joint Entropy Maximization]( )". **The 32th Pacific Conference on Computer Graphics and Applications (Pacific Graphics 2024)**, 2024. CODE click [HERE](https://github.com/caoxin918/PointJEM ) |
-|Jie Liu, Mengna Yang, Yu Tian, Da Song, Kang Li, **Xin Cao※**. "[Point-AGM : Attention Guided Masked Auto-Encoder for Joint Self-supervised Learning on Point Clouds](https://caoxin918.github.io/files/刘杰2024PG.pdf )". **The 32th Pacific Conference on Computer Graphics and Applications (Pacific Graphics 2024)**, 2024. CODE click [HERE]([https://github.com/caoxin918/Point-MSD/tree/main](https://github.com/caoxin918/Point-MSD) )|
-|Linzhi Su, Mengna Yang, Jie Liu, Xingxing Hao※, **Xin Cao**. "[Point-MSD: Jointly Mamba Self-Supervised Self-Distilling Point Cloud Representation Learning]( )". **The 17th IEEE International Conference on Signal Processing**, 2024. |
-| **Xin Cao**, Wenlong Tang, Yi Chen, Linzhi Su, Xingxing Hao※. "[Online Dictionary Learning Method for Cone-beam X-ray Luminescence Computed Tomography Reconstruction: A Preliminary Simulation Study]( )". **The 17th IEEE International Conference on Signal Processing**, 2024. |
-| Huangjian Yi※, Zijian Tang, Ruigang Yang, Fengjun Zhao, **Xin Cao**, Lizhi Zhang, Xiaowei He and Yuqing Hou. "[Regularization parameter based on incomplete variables for X-ray luminescence computed tomography](https://caoxin918.github.io/files/embc2023yihuangjian.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2023. |
-| Fengjun Zhao, Kaiming Huang, Zhipeng Sun, Xin Chen, Xiaowei He, Bin Wang※ and **Cao Xin※**. "[Consistent Learning-Based Breast Tumor Segmentation and Its Application in Sentinel Lymph Node Metastasis Prediction](https://caoxin918.github.io/files/embc2023zhaofengjun.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2023.|
-| **Xin Cao**, Mengfei Du, Yi Chen, Gege Zhang, Jun Zhang, Weitong Li, Kang Li※ and Fengjun Zhao※. "[FISTA-NET: Deep Algorithm Unrolling for Cerenkov luminescence tomography](https://caoxin918.github.io/files/embc2023dumengfei.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2023. |
-| **Xin Cao**, Weitong Li, Yi Chen, Mengfei Du, Gege Zhang, Jun Zhang, Kang Li※ and Linzhi Su※. "[K-CapsNet: K-Nearest Neighbor Based Convolution Capsule Network for Cerenkov Luminescence Tomography Reconstruction](https://caoxin918.github.io/files/embc2023liweitong.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, 2023.  |
+| Kang Li, Bianbian Yang, Yi Chen, Linzhi Su※, Chenyang Zhang, Fengjun Zhao, Yansong Wu, Yiting He and **Xin Cao※**. "[Sparse Reconstruction based on K-Sparse Dictionary Learning Method for Bioluminescence Tomography]()". **The 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, （2025）. |
+| Yiting He, Xingxing Hao※, Yi Chen, Linzhi Su, Chenyang Zhang, Fengjun Zhao, Yansong Wu, **Xin Cao※**. "[Adaptive Online Variational Bayesian Method based on Normal-Generalized Inverse Gaussian Prior for Bioluminescence Tomography]()". **The 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, （2025）. |
+| Kang Li, Gege Zhang, Yi Chen, Linshi Su※, Huangjian Yi, Fengjun Zhao, Yansong Wu, Yiting He and **Xin Cao※**. "[SABR-MIA: Support-driven Adaptive Bayesian Reweighting with Momentum Iterative Acceleration for Sparse Reconstruction in Bioluminescence Tomography]()". **The 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, （2025）. |
+|Sumin Liu, Minghan Chen, **Xin Cao※** , Zhe Sheng, Junmei Sun, Ju Zhang, Shuai Wang, Guorong Wu, Defu Yang. “[A Novel Joint Multi-Graph Learning Framework for Dynamic Functional Connectivity Network Estimation Across Multiple Time Scale]( )”, **IEEE 22nd International Symposium on Biomedical Imaging (ISBI)**, （2025）. CODE click [HERE]( ) |
+|**Xin Cao**, Huan Xia, Haoyu Wang, Linzhi Su, Ping Zhou and Kang Li※. "[PointJEM: Self-supervised Point Cloud Understanding for Reducing Feature Redundancy via Joint Entropy Maximization]( )". **The 32th Pacific Conference on Computer Graphics and Applications (Pacific Graphics)**, （2024）. CODE click [HERE](https://github.com/caoxin918/PointJEM ) |
+|Jie Liu, Mengna Yang, Yu Tian, Da Song, Kang Li, **Xin Cao※**. "[Point-AGM : Attention Guided Masked Auto-Encoder for Joint Self-supervised Learning on Point Clouds](https://caoxin918.github.io/files/刘杰2024PG.pdf )". **The 32th Pacific Conference on Computer Graphics and Applications (Pacific Graphics)**, （2024）. CODE click [HERE]([https://github.com/caoxin918/Point-MSD/tree/main](https://github.com/caoxin918/Point-MSD) )|
+|Linzhi Su, Mengna Yang, Jie Liu, Xingxing Hao※, **Xin Cao**. "[Point-MSD: Jointly Mamba Self-Supervised Self-Distilling Point Cloud Representation Learning]( )". **The 17th IEEE International Conference on Signal Processing**, （2024）. |
+| **Xin Cao**, Wenlong Tang, Yi Chen, Linzhi Su, Xingxing Hao※. "[Online Dictionary Learning Method for Cone-beam X-ray Luminescence Computed Tomography Reconstruction: A Preliminary Simulation Study]( )". **The 17th IEEE International Conference on Signal Processing**, (2024). |
+| Huangjian Yi※, Zijian Tang, Ruigang Yang, Fengjun Zhao, **Xin Cao**, Lizhi Zhang, Xiaowei He and Yuqing Hou. "[Regularization parameter based on incomplete variables for X-ray luminescence computed tomography](https://caoxin918.github.io/files/embc2023yihuangjian.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, (2023). |
+| Fengjun Zhao, Kaiming Huang, Zhipeng Sun, Xin Chen, Xiaowei He, Bin Wang※ and **Cao Xin※**. "[Consistent Learning-Based Breast Tumor Segmentation and Its Application in Sentinel Lymph Node Metastasis Prediction](https://caoxin918.github.io/files/embc2023zhaofengjun.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, (2023).|
+| **Xin Cao**, Mengfei Du, Yi Chen, Gege Zhang, Jun Zhang, Weitong Li, Kang Li※ and Fengjun Zhao※. "[FISTA-NET: Deep Algorithm Unrolling for Cerenkov luminescence tomography](https://caoxin918.github.io/files/embc2023dumengfei.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, (2023). |
+| **Xin Cao**, Weitong Li, Yi Chen, Mengfei Du, Gege Zhang, Jun Zhang, Kang Li※ and Linzhi Su※. "[K-CapsNet: K-Nearest Neighbor Based Convolution Capsule Network for Cerenkov Luminescence Tomography Reconstruction](https://caoxin918.github.io/files/embc2023liweitong.pdf)". **The 45th Annual International Conference of the IEEE Engineering in Medicine and Biology Society**, (2023).  |
 |Yao Hu, Wei Zhou, Guohua Geng, Kang Li, Xingxing Hao, **Xin Cao**. "[Unsupervised Segmentation for Terracotta Warrior with Seed-Region-Growing CNN (SRG-Net)](https://caoxin918.github.io/files/Huyao2021.pdf)", **The 5th International Conference on Computer Science and Application Engineering**. (2021).  |
-| **Xin Cao**, et al. "Improving sensitivity of endoscopy-based Cerenkov luminescence imaging system using radioluminescence microparticles". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging 2015**, Jun. 2015.  |
-| **Xin Cao**, et al. "A novel imaging algorithm for endoscopic Cerenkov luminescence tomography". **World Molecular Imaging Congress 2014**, Sep. 2014.  |
-| **Xin Cao**, et al. "Sensitivity evaluation of endoscopic Cerenkov luminescence imaging system". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging 2014**, Jun. 2014. |
-| **Xin Cao**, et al. "A feasibility study of an endoscopic Cerenkov luminescence imaging system". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging 2013**, Jun. 2013.|
-| **Xin Cao**, et al. "Calibration of the endoscopic Cerenkov luminescence imaging system". **World Molecular Imaging Congress 2013**, Sep. 2013.|
-| Xueli Chen, **Xin Cao**, et al. "Monitoring ApoG2 therapy in gastric and colorectal cancers with endoscopic Cerenkov luminescence imaging and positron emission tomography". **World Molecular Imaging Congress 2014**, Sep. 2014.|
-| Xueli Chen, Defu Yang, **Xin Cao**, et al. "Specific modeling of light transport in biological tissues for Cerenkov luminescence tomography". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging 2014**, Jun. 2014. |
-| Shouping Zhu,**Xin Cao**, et al. "3DBoneView : A 3D bone quantification and visualization software for micro-CT imaging". **World Molecular Imaging Congress 2012**, Sep. 2012.  |
+| **Xin Cao**, et al. "Improving sensitivity of endoscopy-based Cerenkov luminescence imaging system using radioluminescence microparticles". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging**, Jun. (2015).  |
+| **Xin Cao**, et al. "A novel imaging algorithm for endoscopic Cerenkov luminescence tomography". **World Molecular Imaging Congress**, Sep. (2014).  |
+| **Xin Cao**, et al. "Sensitivity evaluation of endoscopic Cerenkov luminescence imaging system". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging**, Jun. (2014). |
+| **Xin Cao**, et al. "A feasibility study of an endoscopic Cerenkov luminescence imaging system". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging**, Jun. (2013).|
+| **Xin Cao**, et al. "Calibration of the endoscopic Cerenkov luminescence imaging system". **World Molecular Imaging Congress**, Sep. 2013.|
+| Xueli Chen, **Xin Cao**, et al. "Monitoring ApoG2 therapy in gastric and colorectal cancers with endoscopic Cerenkov luminescence imaging and positron emission tomography". **World Molecular Imaging Congress**, Sep. (2014).|
+| Xueli Chen, Defu Yang, **Xin Cao**, et al. "Specific modeling of light transport in biological tissues for Cerenkov luminescence tomography". **Annual Meeting of Society of Nuclear Medicine and Molecular Imaging**, Jun. (2014). |
+| Shouping Zhu,**Xin Cao**, et al. "3DBoneView : A 3D bone quantification and visualization software for micro-CT imaging". **World Molecular Imaging Congress**, Sep. (2012).  |
 
 国内期刊
 ===
 
 |  |
 | :---- |
-| 杨佳楠；王忠昊 ；王昊霖 ；耿国华；**曹欣※**。["改进BYOL的非小细胞肺癌表皮生长因子受体基因突变预测方法”](https://caoxin918.github.io/files/2022杨佳楠.pdf)。**光学精密工程**，2022 | 
-| 李伟童；王昊霖 ；李康 ；耿国华；周明全 ；**曹欣※**。["基于局部连接网络的切伦科夫荧光断层成像方法"](https://caoxin918.github.io/files/基于局部连接.pdf)。**激光与光电子学进展**，2021 |  
-| 耿国华；姚文敏 ；周明全 ；刘杰；徐雪丽 ；**曹欣※** ；刘阳洋；李康。["通过调整轮廓线权重的文物碎块自动拼接"](https://caoxin918.github.io/files/基于调整轮廓.pdf)。**西北大学学报**，2021 |
-| 周明全；褚彤 ；耿国华 ；姚文敏；张军 ；**曹欣※**。["结构与纹理融合的三维文物孔洞修复方法"](https://caoxin918.github.io/files/结构与纹理.pdf)。**光学精密工程**，2021 |  
-| 卢笛; 卫潇; **曹欣※**; 贺小伟; 侯榆青。["基于自编码器的荧光分子断层成像快速重建"](https://caoxin918.github.io/files/基于自编码器的荧光分子断层成像快速重建.pdf)。**光学学报**，2019    |
-| 贺小伟; 卫潇; **曹欣※**; 侯榆青。["基于空间信息改进聚类的切伦科夫荧光图像去噪算法"]()。光学学报，2018  | 
-| 贺小伟; 孙怡; 卫潇; 卢笛; **曹欣※**; 侯榆青。["基于空间信息改进聚类的切伦科夫荧光图像去噪算法"](https://caoxin918.github.io/files/基于空间信息改进聚类的切伦科夫荧光图像去噪算法.pdf)。**光学学报**，2018  | 
-| 侯榆青; 张文元; 王晓东; 贺小伟; **曹欣**。["结合流形正则和变量分离近似稀疏重构的荧光分子断层成像"](https://caoxin918.github.io/files/结合流形正则和变量分离近似稀疏重构的荧光分子断层成像.pdf)。**光学精密工程**，2018  |   
-| 侯榆青; 薛花; **曹欣**; 张海波; 曲璇; 贺小伟。["基于稀疏贝叶斯学习的单视图增强型切伦科夫发光断层成像"](https://caoxin918.github.io/files/基于稀疏贝叶斯学习的单视图增强型切伦科夫发光断层成像.pdf)。**光学学报**，2017    | 
+| 杨佳楠；王忠昊 ；王昊霖 ；耿国华；**曹欣※**。["改进BYOL的非小细胞肺癌表皮生长因子受体基因突变预测方法”](https://caoxin918.github.io/files/2022杨佳楠.pdf)。**光学精密工程**，(2022) | 
+| 李伟童；王昊霖 ；李康 ；耿国华；周明全 ；**曹欣※**。["基于局部连接网络的切伦科夫荧光断层成像方法"](https://caoxin918.github.io/files/基于局部连接.pdf)。**激光与光电子学进展**，(2021) |  
+| 耿国华；姚文敏 ；周明全 ；刘杰；徐雪丽 ；**曹欣※** ；刘阳洋；李康。["通过调整轮廓线权重的文物碎块自动拼接"](https://caoxin918.github.io/files/基于调整轮廓.pdf)。**西北大学学报**，(2021) |
+| 周明全；褚彤 ；耿国华 ；姚文敏；张军 ；**曹欣※**。["结构与纹理融合的三维文物孔洞修复方法"](https://caoxin918.github.io/files/结构与纹理.pdf)。**光学精密工程**，(2021) |  
+| 卢笛; 卫潇; **曹欣※**; 贺小伟; 侯榆青。["基于自编码器的荧光分子断层成像快速重建"](https://caoxin918.github.io/files/基于自编码器的荧光分子断层成像快速重建.pdf)。**光学学报**，(2019)    |
+| 贺小伟; 卫潇; **曹欣※**; 侯榆青。["基于空间信息改进聚类的切伦科夫荧光图像去噪算法"]()。光学学报，(2018)  | 
+| 贺小伟; 孙怡; 卫潇; 卢笛; **曹欣※**; 侯榆青。["基于空间信息改进聚类的切伦科夫荧光图像去噪算法"](https://caoxin918.github.io/files/基于空间信息改进聚类的切伦科夫荧光图像去噪算法.pdf)。**光学学报**，(2018)  | 
+| 侯榆青; 张文元; 王晓东; 贺小伟; **曹欣**。["结合流形正则和变量分离近似稀疏重构的荧光分子断层成像"](https://caoxin918.github.io/files/结合流形正则和变量分离近似稀疏重构的荧光分子断层成像.pdf)。**光学精密工程**，(2018)  |   
+| 侯榆青; 薛花; **曹欣**; 张海波; 曲璇; 贺小伟。["基于稀疏贝叶斯学习的单视图增强型切伦科夫发光断层成像"](https://caoxin918.github.io/files/基于稀疏贝叶斯学习的单视图增强型切伦科夫发光断层成像.pdf)。**光学学报**，(2017)    | 
 
 受理/授权发明专利
 ===
