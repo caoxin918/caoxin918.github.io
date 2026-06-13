@@ -309,7 +309,7 @@ section_html = f'''    <!-- ===== Publications ===== -->
     <section class="publications" id="pubs">
         <div class="sec-inner">
             <div class="sec-header anim">
-                <h2>论文成果</h2>
+                <h2>科研成果</h2>
                 <p>Publications &nbsp;·&nbsp; 共 {total} 项 &nbsp;·&nbsp; <a href="https://scholar.google.com/citations?hl=zh-CN&amp;user=5iI5G0IAAAAJ&amp;view_op=list_works&amp;sortby=pubdate" target="_blank" style="color:#2d6f9e;font-weight:600;">Google Scholar →</a></p>
             </div>
             {tabs_html}
