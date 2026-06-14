@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRediT 贡献声明生成器</title>
+  <style>
+    * { box-sizing: border-box; margin:0; padding:0; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f5f7fa;
+      color: #1a1a2e;
+      min-height: 100vh;
+    }
+
+    /* ===== 顶部导航 ===== */
+    .topbar {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+      color: #fff;
+      padding: 14px 28px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.12);
+    }
+    .topbar .logo {
+      width: 34px; height: 34px;
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      border-radius: 9px;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 14px; color: #fff;
+    }
+    .topbar h1 { font-size: 17px; font-weight: 600; letter-spacing: 0.3px; }
+    .topbar .subtitle { font-size: 11px; color: #a0aec0; margin-left: 8px; }
+
+    /* ===== 工具栏 ===== */
+    .toolbar {
+      max-width: 960px;
+      margin: 16px auto 0;
+      padding: 0 20px;
+      display: flex;
+      gap: 8px;
+      justify-content: flex-end;
+    }
+    .btn-tool {
+      padding: 7px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      cursor: pointer;
+      border: 1.5px solid #e2e8f0;
+      background: #fff;
+      color: #4a5568;
+      transition: all 0.15s;
+      font-weight: 500;
+    }
+    .btn-tool:hover { border-color: #cbd5e0; }
+    .btn-tool.primary {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
+    }
+    .btn-tool.primary:hover { background: #5b4cdb; }
+
+    /* ===== 论文信息栏 ===== */
+    .paper-info {
+      max-width: 960px;
+      margin: 18px auto 0;
+      padding: 0 20px;
+    }
+    .paper-info .card-body {
+      display: flex;
+      gap: 12px;
+    }
+    .paper-info input {
+      flex: 1;
+      border: 1.5px solid #e2e8f0;
+      border-radius: 9px;
+      padding: 9px 13px;
+      font-size: 13px;
+      outline: none;
+      transition: border-color 0.2s;
+      background: #fafbfd;
+      color: #1a1a2e;
+    }
+    .paper-info input:focus { border-color: #6c5ce7; background: #fff; }
+    .paper-info input::placeholder { color: #b0bec5; }
+
+    /* ===== 主布局 ===== */
+    .main {
+      max-width: 960px;
+      margin: 18px auto;
+      padding: 0 20px;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    /* ===== 卡片 ===== */
+    .card {
+      background: #fff;
+      border-radius: 14px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.03);
+      overflow: hidden;
+    }
+    .card-header {
+      padding: 13px 18px;
+      border-bottom: 1px solid #edf2f7;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-header h2 {
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+    }
+    .card-header .header-actions {
+      margin-left: auto;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .card-body { padding: 14px 18px; }
+
+    /* ===== 左侧：作者列表 ===== */
+    .author-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .author-item {
+      border: 1.5px solid #e8ecf1;
+      border-radius: 11px;
+      padding: 11px 14px;
+      transition: all 0.18s ease;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #fafbfd;
+    }
+    .author-item:hover { border-color: #c3d0df; background: #fff; }
+    .author-item.selected {
+      border-color: #6c5ce7;
+      background: #f5f3ff;
+      box-shadow: 0 0 0 3px rgba(108,92,231,0.08);
+    }
+
+    .author-index {
+      width: 26px; height: 26px;
+      background: #e2e8f0;
+      color: #4a5568;
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 12px;
+      font-weight: 700;
+      flex-shrink: 0;
+      transition: all 0.18s;
+    }
+    .author-item.selected .author-index {
+      background: #6c5ce7;
+      color: #fff;
+    }
+
+    .author-name-input {
+      flex: 1;
+      border: none;
+      background: transparent;
+      font-size: 14px;
+      outline: none;
+      color: #1a1a2e;
+      font-weight: 500;
+      min-width: 0;
+    }
+    .author-name-input::placeholder { color: #b0bec5; font-weight: 400; }
+
+    .role-count-badge {
+      min-width: 24px; height: 24px;
+      background: #e8ecf1;
+      color: #64748b;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.18s;
+    }
+    .author-item.selected .role-count-badge,
+    .role-count-badge.has-roles {
+      background: #6c5ce7;
+      color: #fff;
+    }
+
+    .btn-remove-author {
+      width: 26px; height: 26px;
+      border: none;
+      background: transparent;
+      border-radius: 6px;
+      color: #b0bec5;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      opacity: 0;
+      transition: all 0.15s;
+    }
+    .author-item:hover .btn-remove-author { opacity: 1; }
+    .btn-remove-author:hover { background: #fef2f2; color: #ef4444; }
+
+    .btn-add-author {
+      width: 100%;
+      padding: 10px;
+      border: 2px dashed #d1d9e6;
+      border-radius: 11px;
+      background: transparent;
+      color: #94a3b8;
+      font-size: 13px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      font-weight: 500;
+    }
+    .btn-add-author:hover {
+      border-color: #6c5ce7;
+      color: #6c5ce7;
+      background: #f5f3ff;
+    }
+
+    /* ===== 右侧：角色选择面板 ===== */
+    .roles-panel { position: sticky; top: 20px; }
+
+    .roles-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6px 16px;
+    }
+
+    .role-check {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 8px 10px;
+      border-radius: 9px;
+      cursor: pointer;
+      transition: all 0.15s;
+      user-select: none;
+    }
+    .role-check:hover { background: #f7f8fa; }
+
+    .role-checkbox {
+      width: 20px; height: 20px;
+      border: 2px solid #d1d9e6;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+      transition: all 0.15s;
+      background: #fff;
+    }
+    .role-checkbox.checked {
+      background: #6c5ce7;
+      border-color: #6c5ce7;
+    }
+    .role-checkbox.checked::after {
+      content: "✓";
+      color: #fff;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .role-label {
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.25;
+    }
+    .role-check:hover .role-label { color: #1a1a2e; }
+
+    /* 空状态 */
+    .empty-state {
+      text-align: center;
+      padding: 40px 20px;
+      color: #94a3b8;
+    }
+    .empty-state-icon { font-size: 36px; margin-bottom: 10px; }
+    .empty-state p { font-size: 14px; line-height: 1.6; }
+
+    /* ===== 输出区域 ===== */
+    .output-section { margin-top: 18px; }
+    .format-toggle {
+      display: flex;
+      gap: 5px;
+      margin-bottom: 10px;
+    }
+    .format-btn {
+      padding: 5px 12px;
+      border-radius: 7px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      border: 1.5px solid #e2e8f0;
+      background: #fff;
+      color: #94a3b8;
+      transition: all 0.15s;
+    }
+    .format-btn.active {
+      background: #6c5ce7;
+      color: #fff;
+      border-color: #6c5ce7;
+    }
+
+    .output-box {
+      background: #1a1a2e;
+      border-radius: 10px;
+      padding: 16px 18px;
+      min-height: 90px;
+      color: #e2e8f0;
+      font-family: "SF Mono", "Fira Code", "Cascadia Code", monospace;
+      font-size: 12.5px;
+      line-height: 1.75;
+      white-space: pre-wrap;
+      word-break: break-all;
+    }
+    .output-box .placeholder-text {
+      color: #4a5568;
+      font-style: italic;
+      font-family: inherit;
+    }
+
+    .output-actions {
+      display: flex;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .btn-copy {
+      flex: 1;
+      padding: 9px;
+      border-radius: 9px;
+      border: none;
+      background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+      transition: all 0.2s;
+    }
+    .btn-copy:hover { opacity: 0.88; transform: translateY(-1px); }
+    .btn-copy:active { transform: translateY(0); }
+
+    .btn-export {
+      padding: 9px 16px;
+      border-radius: 9px;
+      border: 1.5px solid #d1d9e6;
+      background: #fff;
+      color: #64748b;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .btn-export:hover { border-color: #94a3b8; color: #374151; }
+
+    /* ===== CRediT 说明 ===== */
+    .credit-ref {
+      margin-top: 16px;
+      padding: 13px 16px;
+      background: #f8f9fb;
+      border-radius: 11px;
+      border: 1px solid #eef1f6;
+    }
+    .credit-ref h4 {
+      font-size: 11px;
+      color: #94a3b8;
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .credit-ref .ref-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3px 12px;
+    }
+    .ref-list .ref-item {
+      font-size: 11px;
+      color: #64748b;
+      display: flex;
+      gap: 6px;
+      align-items: baseline;
+      line-height: 1.45;
+    }
+    .ref-list .ref-item .role-name {
+      font-weight: 600;
+      color: #475569;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ===== 页脚 ===== */
+    .footer {
+      text-align: center;
+      padding: 24px 20px;
+      color: #94a3b8;
+      font-size: 12px;
+    }
+    .footer a { color: #6c5ce7; text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ===== 响应式 ===== */
+    @media (max-width: 720px) {
+      .main { grid-template-columns: 1fr; }
+      .roles-panel { position: static; }
+      .credit-ref .ref-list { grid-template-columns: 1fr; }
+      .paper-info .card-body { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 顶部导航 -->
+<div class="topbar">
+  <div class="logo">CR</div>
+  <div>
+    <h1>CRediT 贡献声明生成器</h1>
+    <span class="subtitle">Contributor Roles Taxonomy Statement Generator</span>
+  </div>
+</div>
+
+<!-- 工具栏 -->
+<div class="toolbar">
+  <button class="btn-tool" onclick="handleClear()">&#x1f4d1; &#x6e05;&#x7a7a;&#x5168;&#x90e8;</button>
+  <button class="btn-tool" onclick="handleExample()">&#x1f4cb; &#x8f7d;&#x5165;&#x793a;&#x4f8b;</button>
+  <button class="btn-tool primary" onclick="handleGenerate()">&#x2728; &#x751f;&#x6210;&#x58f0;&#x660e;</button>
+</div>
+
+<!-- 论文信息（可选） -->
+<div class="paper-info">
+  <div class="card" style="width:100%;">
+    <div class="card-body">
+      <input id="paperTitle" placeholder="论文标题（可选）" />
+      <input id="journalName" placeholder="期刊名称（可选）" />
+    </div>
+  </div>
+</div>
+
+<!-- 主内容：左右两栏 -->
+<div class="main">
+
+  <!-- 左侧：作者列表 -->
+  <div class="left-col">
+    <div class="card">
+      <div class="card-header">
+        <h2>&#x1f465; &#x4f5c;&#x8005;&#x5217;&#x8868;</h2>
+        <div class="header-actions">
+          <span style="font-size:12px; color:#94a3b8;" id="authorCount">0 &#x4eba;</span>
+        </div>
+      </div>
+      <div class="card-body">
+        <div class="author-list" id="authorList"></div>
+        <button class="btn-add-author" onclick="addAuthor()">
+          &#x200b;＋ &#x6dfb;&#x52a0;&#x65b0;&#x4f5c;&#x8005;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 右侧：角色选择 + 输出 -->
+  <div class="right-col">
+
+    <!-- 角色选择面板 -->
+    <div class="card roles-panel">
+      <div class="card-header">
+        <h2>&#x1f4cb; <span id="rolesPanelTitle">&#x9009;&#x62e9;&#x4e00;&#x4f4d;&#x4f5c;&#x8005;</span></h2>
+      </div>
+      <div class="card-body" id="rolesCardBody">
+        <div class="empty-state">
+          <div class="empty-state-icon">&#x1f4d6;</div>
+          <p>&#x70b9;&#x51fb;&#x5de6;&#x4fa7;&#x7684;&#x4f5c;&#x8005;&#xff0c;<br/>&#x7136;&#x540e;&#x4e3a;&#x6b64;&#x4f5c;&#x8005;&#x52fe;&#x9009;&#x8d21;&#x732e;&#x89d2;&#x8272;&#x3002;</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 生成结果输出 -->
+    <div class="output-section card">
+      <div class="card-header">
+        <h2>&#x1f4dc; &#x751f;&#x6210;&#x7ed3;&#x679c;</h2>
+        <div class="format-toggle">
+          <button class="format-btn active" data-fmt="inline" onclick="setFormat('inline')">&#x5355;&#x884c;</button>
+          <button class="format-btn" data-fmt="multiline" onclick="setFormat('multiline')">&#x591a;&#x884c;</button>
+          <button class="format-btn" data-fmt="paragraph" onclick="setFormat('paragraph')">&#x6bb5;&#x843d;</button>
+        </div>
+      </div>
+      <div class="card-body" style="padding-bottom:14px;">
+        <div class="output-box" id="outputBox">
+          <span class="placeholder-text">&#x6dfb;&#x52a0;&#x4f5c;&#x8005;&#x5e76;&#x9009;&#x62e9;&#x89d2;&#x8272;&#x540e;&#xff0c;&#x70b9;&#x51fb;&#x300c;&#x751f;&#x6210;&#x58f0;&#x660e;&#x300d;&#x67e5;&#x770b;&#x7ed3;&#x679c;</span>
+        </div>
+        <div class="output-actions">
+          <button class="btn-copy" onclick="handleCopy()">&#x1f4cb; &#x590d;&#x5236;&#x5230;&#x526a;&#x8d34;&#x677f;</button>
+          <button class="btn-export" onclick="handleExport()">&#x1f4be; &#x5bfc;&#x51fa; TXT</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- CRediT 角色说明 -->
+    <div class="credit-ref">
+      <h4>CRediT 14 &#x9879;&#x89d2;&#x8272;&#x8bf4;&#x660e;</h4>
+      <div class="ref-list">
+        <div class="ref-item"><span class="role-name">Conceptualization</span><span>&#x63d0;&#x51fa;&#x6838;&#x5fc3;&#x6982;&#x5ff5;&#x6216;&#x6784;&#x601d;</span></div>
+        <div class="ref-item"><span class="role-name">Data curation</span><span>&#x6570;&#x636e;&#x7ba1;&#x7406;&#x4e0e;&#x6574;&#x7406;</span></div>
+        <div class="ref-item"><span class="role-name">Formal analysis</span><span>&#x6b63;&#x5f0f;&#x6570;&#x636e;&#x5206;&#x6790;</span></div>
+        <div class="ref-item"><span class="role-name">Funding acquisition</span><span>&#x83b7;&#x53d6;&#x7814;&#x7a76;&#x8d44;&#x91d1;</span></div>
+        <div class="ref-item"><span class="role-name">Investigation</span><span>&#x5b9e;&#x9a8c;&#x6216;&#x8c03;&#x67e5;&#x7814;&#x7a76;</span></div>
+        <div class="ref-item"><span class="role-name">Methodology</span><span>&#x65b9;&#x6cd5;&#x8bba;&#x8bbe;&#x8ba1;</span></div>
+        <div class="ref-item"><span class="role-name">Project administration</span><span>&#x9879;&#x76ee;&#x7ba1;&#x7406;&#x534f;&#x8c03;</span></div>
+        <div class="ref-item"><span class="role-name">Resources</span><span>&#x63d0;&#x4f9b;&#x7814;&#x7a76;&#x8d44;&#x6e90;</span></div>
+        <div class="ref-item"><span class="role-name">Software</span><span>&#x8f6f;&#x4ef6;&#x5f00;&#x53d1;/&#x7f16;&#x7a0b;</span></div>
+        <div class="ref-item"><span class="role-name">Supervision</span><span>&#x7814;&#x7a76;&#x76d1;&#x7763;&#x6307;&#x5bfc;</span></div>
+        <div class="ref-item"><span class="role-name">Validation</span><span>&#x7814;&#x7a76;&#x9a8c;&#x8bc1;&#x4e0e;&#x590d;&#x73b0;</span></div>
+        <div class="ref-item"><span class="role-name">Visualization</span><span>&#x6570;&#x636e;&#x53ef;&#x89c6;&#x5316;</span></div>
+        <div class="ref-item"><span class="role-name">Writing &ndash; original draft</span><span>&#x64b0;&#x5199;&#x521d;&#x7a3f;</span></div>
+        <div class="ref-item"><span class="role-name">Writing &ndash; review &amp; editing</span><span>&#x9610;&#x9605;&#x4e0e;&#x4fee;&#x6539;</span></div>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- 页脚 -->
+<div class="footer">
+  Developed by <b>Xin Cao</b> at <a href="https://www.nwu.edu.cn/" target="_blank">Northwest University</a> &middot;
+  Based on <a href="https://credit.niso.org/" target="_blank">CRediT Taxonomy</a>
+</div>
+
+<script>
+  // ===== CRediT 全部角色定义 =====
+  const ALL_ROLES = [
+    "Conceptualization",
+    "Data curation",
+    "Formal analysis",
+    "Funding acquisition",
+    "Investigation",
+    "Methodology",
+    "Project administration",
+    "Resources",
+    "Software",
+    "Supervision",
+    "Validation",
+    "Visualization",
+    "Writing – original draft",
+    "Writing – review & editing"
+  ];
+
+  // ===== 状态 =====
+  let authors = [];
+  let selectedIdx = -1;
+  let currentFormat = "inline";
+
+  // ===== 初始化 =====
+  addAuthor();
+
+  // ========== 作者操作 ==========
+
+  function addAuthor() {
+    authors.push({ name: "", roles: [] });
+    selectedIdx = authors.length - 1;
+    render();
+    setTimeout(() => {
+      const inputs = document.querySelectorAll(".author-name-input");
+      if (inputs.length > 0) inputs[inputs.length - 1].focus();
+    }, 50);
+  }
+
+  function removeAuthor(idx, event) {
+    if (event) event.stopPropagation();
+    authors.splice(idx, 1);
+    if (selectedIdx === idx) {
+      selectedIdx = authors.length > 0 ? Math.min(idx, authors.length - 1) : -1;
+    } else if (selectedIdx > idx) {
+      selectedIdx--;
+    }
+    if (authors.length === 0) addAuthor();
+    else render();
+  }
+
+  function selectAuthor(idx) {
+    selectedIdx = idx;
+    render();
+  }
+
+  function updateName(idx, val) {
+    authors[idx].name = val;
+    if (idx === selectedIdx) updateRolesTitle();
+    updateCount();
+  }
+
+  // ========== 角色操作 ==========
+
+  function toggleRole(role, event) {
+    if (event) event.preventDefault();
+    if (selectedIdx < 0 || !authors[selectedIdx]) return;
+    const a = authors[selectedIdx];
+    const i = a.roles.indexOf(role);
+    if (i >= 0) a.roles.splice(i, 1);
+    else a.roles.push(role);
+    renderRolesPanel();
+    updateCount();
+  }
+
+  // ========== 格式切换 ==========
+
+  function setFormat(fmt) {
+    currentFormat = fmt;
+    document.querySelectorAll(".format-btn").forEach(b => b.classList.remove("active"));
+    document.querySelector(`.format-btn[data-fmt="${fmt}"]`).classList.add("active");
+    handleGenerate();
+  }
+
+  // ========== 生成声明 ==========
+
+  function handleGenerate() {
+    const valid = authors.filter(a => a.name.trim() && a.roles.length > 0);
+    if (valid.length === 0) {
+      document.getElementById("outputBox").innerHTML =
+        '<span class="placeholder-text">&#x8bf7;&#x81f3;&#x5c11;&#x6dfb;&#x52a0;&#x4e00;&#x4e2a;&#x4f5c;&#x8005;&#x5e76;&#x4e3a;&#x5176;&#x9009;&#x62e9;&#x89d2;&#x8272;</span>';
+      return;
+    }
+
+    const title = document.getElementById("paperTitle").value.trim();
+    const journal = document.getElementById("journalName").value.trim();
+
+    let result = "";
+    switch (currentFormat) {
+      case "inline":
+        result = valid.map(a => `${a.name.trim()}: ${a.roles.join(", ")}.`).join(" ");
+        break;
+      case "multiline":
+        result = valid.map(a => `${a.name.trim()}: ${a.roles.join(", ")}.`).join("\n");
+        break;
+      case "paragraph":
+        const parts = valid.map(a => `${a.name.trim()} (${a.roles.join(", ")})`);
+        result = "Author contributions: " + parts.join("; ") + ".";
+        break;
+    }
+
+    // 如果有论文标题或期刊，附加在结果上方
+    let header = "";
+    if (title) header += `Title: ${title}\n`;
+    if (journal) header += `Journal: ${journal}\n`;
+    if (header) result = header + "\n" + result;
+
+    document.getElementById("outputBox").innerText = result;
+  }
+
+  // ========== 复制 / 导出 ==========
+
+  function handleCopy() {
+    const text = document.getElementById("outputBox").innerText;
+    if (!text || text.includes("请至少") || text.includes("添加作者")) return;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = document.querySelector(".btn-copy");
+      const orig = btn.innerText;
+      btn.innerText = "✅ 已复制！";
+      setTimeout(() => btn.innerText = orig, 1500);
+    });
+  }
+
+  function handleExport() {
+    const text = document.getElementById("outputBox").innerText;
+    if (!text || text.includes("请至少") || text.includes("添加作者")) return;
+    const blob = new Blob([text], { type: "text/plain;charset=utf-8" });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement("a");
+    a.href = url; a.download = "CRediT_Statement.txt";
+    a.click(); URL.revokeObjectURL(url);
+  }
+
+  // ========== 示例 / 清空 ==========
+
+  function handleExample() {
+    authors = [
+      { name: "caoxin", roles: ["Conceptualization", "Investigation"] },
+      { name: "liuzichao", roles: ["Project administration", "Software"] },
+      { name: "caoshuyu", roles: ["Methodology", "Resources"] }
+    ];
+    document.getElementById("paperTitle").value = "A Novel Framework for CRediT Statement Generation";
+    document.getElementById("journalName").value = "";
+    selectedIdx = 2;
+    render();
+    handleGenerate();
+  }
+
+  function handleClear() {
+    authors = [];
+    selectedIdx = -1;
+    document.getElementById("paperTitle").value = "";
+    document.getElementById("journalName").value = "";
+    addAuthor();
+    handleGenerate();
+  }
+
+  // ========== 渲染 ==========
+
+  function render() {
+    renderAuthorList();
+    renderRolesPanel();
+    updateCount();
+  }
+
+  function renderAuthorList() {
+    const list = document.getElementById("authorList");
+    list.innerHTML = "";
+
+    authors.forEach((a, idx) => {
+      const div = document.createElement("div");
+      div.className = "author-item" + (idx === selectedIdx ? " selected" : "");
+
+      const countClass = a.roles.length > 0 ? " has-roles" : "";
+
+      div.innerHTML = `
+        <div class="author-index">${idx + 1}</div>
+        <input class="author-name-input"
+               placeholder="输入姓名..."
+               value="${a.name}"
+        />
+        <div class="role-count-badge${countClass}">${a.roles.length}</div>
+        ${authors.length > 1 ? '<button class="btn-remove-author" title="删除此作者">✕</button>' : ""}
+      `;
+
+      div.onclick = () => selectAuthor(idx);
+
+      const input = div.querySelector(".author-name-input");
+      input.oninput = () => updateName(idx, input.value);
+      input.onclick = (e) => { e.stopPropagation(); selectedIdx = idx; renderRolesPanel(); updateRolesTitle(); };
+      input.onfocus = () => { selectedIdx = idx; renderRolesPanel(); updateRolesTitle(); };
+
+      const removeBtn = div.querySelector(".btn-remove-author");
+      if (removeBtn) {
+        removeBtn.onclick = (e) => removeAuthor(idx, e);
+      }
+
+      list.appendChild(div);
+    });
+  }
+
+  function renderRolesPanel() {
+    const body = document.getElementById("rolesCardBody");
+    updateRolesTitle();
+
+    if (selectedIdx < 0 || !authors[selectedIdx]) {
+      body.innerHTML = `
+        <div class="empty-state">
+          <div class="empty-state-icon">&#x1f4d6;</div>
+          <p>&#x70b9;&#x51fb;&#x5de6;&#x4fa7;&#x7684;&#x4f5c;&#x8005;&#xff0c;<br/>&#x7136;&#x540e;&#x4e3a;&#x6b64;&#x4f5c;&#x8005;&#x52fe;&#x9009;&#x8d21;&#x732e;&#x89d2;&#x8272;&#x3002;</p>
+        </div>`;
+      return;
+    }
+
+    const a = authors[selectedIdx];
+    const rolesHTML = ALL_ROLES.map(r => {
+      const checked = a.roles.includes(r) ? " checked" : "";
+      return `
+        <label class="role-check" onclick="toggleRole('${r}', event)">
+          <div class="role-checkbox${checked}"></div>
+          <span class="role-label">${r}</span>
+        </label>`;
+    }).join("");
+
+    body.innerHTML = `<div class="roles-grid">${rolesHTML}</div>`;
+  }
+
+  function updateRolesTitle() {
+    const el = document.getElementById("rolesPanelTitle");
+    if (selectedIdx >= 0 && authors[selectedIdx] && authors[selectedIdx].name.trim()) {
+      el.textContent = authors[selectedIdx].name.trim() + " 的贡献角色";
+    } else if (selectedIdx >= 0 && authors[selectedIdx]) {
+      el.textContent = `作者 ${selectedIdx + 1} 的贡献角色`;
+    } else {
+      el.textContent = "选择一位作者";
+    }
+  }
+
+  function updateCount() {
+    const total = authors.reduce((s, a) => s + a.roles.length, 0);
+    document.getElementById("authorCount").textContent =
+      `${authors.length} 人 · ${total} 项角色`;
+  }
+</script>
+
+</body>
+</html>
