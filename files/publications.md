@@ -9,6 +9,7 @@ author_profile: true
 
 | |
 | :---- |
+|**Xin Cao**, Yiting He, Xin Zhou, Jiaxin Du, Yi Chen※, Chengyi Gao, Huangjian Yi, Xingxing Hao※, Linzhi Su. “[Efficient and robust fluorescence molecular tomography reconstruction via sparse pseudo-input Gaussian process based Bayesian optimization](https://caoxin918.github.io/files/2026-何依婷bspc.pdf)”, **Biomedical Signal Processing and Control**. (2026). |
 |Yinan Wang, Hao Zhang, Jiaxu Shi, Yangyang Liu, Fengjun Zhao, **Xin Cao※**. “[GS-CL: Generative Spectral-Contrastive Learning for Robust 3D point cloud representation](  )”, **Pattern Recognition**. (2026). |
 |Yanqiu Liu, Qinran Zhang, Sihao Ma, Qiong Xie※, **Xin Cao** and Huangjian Yi※. “[An automatic three-way clustering method based on shadowed sets and its application to FMT](  )”, **Journal of Applied Physics**. (2026). |
 |**Xin Cao※**, Xinmeng Hu, Yinan Wang, Kang Li, Linzhi Su※, Yangyang Liu, Fengjun Zhao※. “[Point-DPA: Unifying contrastive and generative learning for 3D point cloud understanding via dynamic prototypes](https://caoxin918.github.io/files/2026-huxinmeng-ins.pdf)”, **Information Sciences**. (2026). |
