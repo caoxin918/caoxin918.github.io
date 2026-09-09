@@ -9,7 +9,7 @@ author_profile: true
 
 | |
 | :---- |
-|**Xin Cao**, Linrong Yea, Xinmeng Hua, Tianyi Liua, Linzhi Su※, Kang Li※. “[PointSiRE: Siamese Representation Learning with Relative Geometry and Evolved Masking for Point Cloud]()”, **Information Sciences**. (2026). |
+|**Xin Cao**, Linrong Yea, Xinmeng Hua, Tianyi Liua, Linzhi Su※, Kang Li※. “[PointSiRE: Siamese Representation Learning with Relative Geometry and Evolved Masking for Point Cloud](https://caoxin918.github.io/files/2026-yelinrong-ins.pdf)”, **Information Sciences**. (2026). |
 |**Xin Cao**, Yinan Wang, Linrong Ye, Jiaxu Shi, Linzhi Su※, Xingxing Hao※, Fengjun Zhao. “[SG-PointMIM: Spectral Self-Guided Masking and Dual-Target Reconstruction for Point Cloud Representation Learning]()”, **IEEE Transactions on Multimedia**. (2026). |
 |**Xin Cao**, Yiting He, Xin Zhou, Jiaxin Du, Yi Chen※, Chengyi Gao, Huangjian Yi, Xingxing Hao※, Linzhi Su. “[Efficient and robust fluorescence molecular tomography reconstruction via sparse pseudo-input Gaussian process based Bayesian optimization](https://caoxin918.github.io/files/2026-何依婷bspc.pdf)”, **Biomedical Signal Processing and Control**. (2026). |
 |Yinan Wang, Hao Zhang, Jiaxu Shi, Yangyang Liu, Fengjun Zhao, **Xin Cao※**. “[GS-CL: Generative Spectral-Contrastive Learning for Robust 3D point cloud representation](  )”, **Pattern Recognition**. (2026). |
